@@ -467,9 +467,9 @@ chcp 437 > nul
 cls
 
 :: Set current version and URLs
-set "GITHUB_VERSION_URL=https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/main/.service/version.txt"
-set "GITHUB_RELEASE_URL=https://github.com/Flowseal/zapret-discord-youtube/releases/tag/"
-set "GITHUB_DOWNLOAD_URL=https://github.com/Flowseal/zapret-discord-youtube/releases/latest"
+set "GITHUB_VERSION_URL=https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/version.txt"
+set "GITHUB_REPOSITORY_URL=https://github.com/bymakk/zapret-cb-sc"
+set "GITHUB_DOWNLOAD_URL=https://github.com/bymakk/zapret-cb-sc/archive/refs/heads/main.zip"
 
 :: Get the latest version from GitHub
 for /f "delims=" %%A in ('powershell -NoProfile -Command "(Invoke-WebRequest -Uri \"%GITHUB_VERSION_URL%\" -Headers @{\"Cache-Control\"=\"no-cache\"} -UseBasicParsing -TimeoutSec 5).Content.Trim()" 2^>nul') do set "GITHUB_VERSION=%%A"
@@ -492,7 +492,7 @@ if "%LOCAL_VERSION%"=="%GITHUB_VERSION%" (
 ) 
 
 echo New version available: %GITHUB_VERSION%
-echo Release page: %GITHUB_RELEASE_URL%%GITHUB_VERSION%
+echo Repository page: %GITHUB_REPOSITORY_URL%
 
 echo Opening the download page...
 start "" "%GITHUB_DOWNLOAD_URL%"
@@ -982,21 +982,35 @@ chcp 437 > nul
 cls
 
 set "listFile=%~dp0lists\ipset-all.txt"
-set "url=https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/refs/heads/main/.service/ipset-service.txt"
+set "backupFile=%listFile%.backup"
+set "tempFile=%TEMP%\zapret_ipset_service.txt"
+set "url=https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/ipset-service.txt"
 
 echo Updating ipset-all...
 
 if exist "%SystemRoot%\System32\curl.exe" (
-    curl -L -o "%listFile%" "%url%"
+    curl -L -o "%tempFile%" "%url%"
 ) else (
     powershell -NoProfile -Command ^
         "$url = '%url%';" ^
-        "$out = '%listFile%';" ^
+        "$out = '%tempFile%';" ^
         "$dir = Split-Path -Parent $out;" ^
         "if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir | Out-Null };" ^
         "$res = Invoke-WebRequest -Uri $url -TimeoutSec 10 -UseBasicParsing;" ^
         "if ($res.StatusCode -eq 200) { $res.Content | Out-File -FilePath $out -Encoding UTF8 } else { exit 1 }"
 )
+
+if not exist "%tempFile%" (
+    call :PrintRed "Failed to download ipset list from repository"
+    pause
+    goto menu
+)
+
+copy /Y "%tempFile%" "%listFile%" >nul
+if exist "%backupFile%" (
+    copy /Y "%tempFile%" "%backupFile%" >nul
+)
+del /f /q "%tempFile%" >nul 2>&1
 
 echo Finished
 
@@ -1010,7 +1024,7 @@ chcp 437 > nul
 cls
 
 set "hostsFile=%SystemRoot%\System32\drivers\etc\hosts"
-set "hostsUrl=https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/refs/heads/main/.service/hosts"
+set "hostsUrl=https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/hosts"
 set "tempFile=%TEMP%\zapret_hosts.txt"
 set "needsUpdate=0"
 
