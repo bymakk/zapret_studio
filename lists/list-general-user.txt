@@ -17,6 +17,7 @@ go.mywebcamroom.com
 go.stripchat.com
 go.xxxvjmp.com
 google-analytics.com
+googleads.g.doubleclick.net
 img.doppiocdn.live
 img.doppiocdn.net
 loo3laej.com
