@@ -129,6 +129,7 @@ camversity.com
 cdn.lovense-api.com
 cdn.lovense.com
 coll.lovense-api.com
+date.lovense-api.com
 de.lovense.com
 developer.lovense.com
 es.lovense.com
