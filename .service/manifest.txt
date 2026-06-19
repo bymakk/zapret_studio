@@ -1,6 +1,6 @@
 ; manifest.txt — files auto-refreshed from the fork on every launch (Этап A).
 ; Lines starting with ';' are comments. Paths are relative to the repo root and
-; are pulled from https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/<path>
+; are pulled from https://raw.githubusercontent.com/bymakk/zapret_studio/main/<path>
 ; (with cdn.jsdelivr.net fallback). These are BASE lists only.
 ;
 ; NOT listed here on purpose (stay local / never overwritten):

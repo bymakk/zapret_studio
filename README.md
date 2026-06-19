@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src="https://cdn-icons-png.flaticon.com/128/5968/5968756.png" height=28 /> <a href="https://github.com/bymakk/">bymakk</a><a href="https://github.com/bymakk/zapret-cb-sc">/zapret-cb-sc</a> <img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" height=28 />
+# <img src="https://cdn-icons-png.flaticon.com/128/5968/5968756.png" height=28 /> <a href="https://github.com/bymakk/">bymakk</a><a href="https://github.com/bymakk/zapret_studio">/zapret_studio</a> <img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png" height=28 />
 
 Форк <a href="https://github.com/Flowseal/zapret-discord-youtube">Flowseal/zapret-discord-youtube</a> с расширенными списками под **Chaturbate**, **Stripchat**, **MyWebcamRoom**, **Camsoda** и связанные CDN/API.
 
@@ -13,7 +13,7 @@
 > [!CAUTION]
 >
 > ### Источник сборки
-> Считайте доверенной только копию из этого репозитория: **[bymakk/zapret-cb-sc](https://github.com/bymakk/zapret-cb-sc)**.  
+> Считайте доверенной только копию из этого репозитория: **[bymakk/zapret_studio](https://github.com/bymakk/zapret_studio)**.  
 > Сторонние репаки и «зеркала» могут содержать подменённые бинарники — проверяйте, что запускаете.
 
 > [!WARNING]
@@ -42,11 +42,11 @@
 
 2. **Скачайте архив**
    - **Code → Download ZIP** на странице репозитория, или  
-   - прямая ссылка на архив ветки `main`: [main.zip](https://github.com/bymakk/zapret-cb-sc/archive/refs/heads/main.zip)
+   - прямая ссылка на архив ветки `main`: [main.zip](https://github.com/bymakk/zapret_studio/archive/refs/heads/main.zip)
 
 3. У скачанного архива в **Свойствах** при необходимости включите **«Разблокировать»** (для встроенного в Windows архиватора).
 
-4. Распакуйте в путь **без кириллицы и спецсимволов**, желательно корень диска, например `C:\zapret-cb-sc` (пробелы в пути иногда ломают сервис/батники).
+4. Распакуйте в путь **без кириллицы и спецсимволов**, желательно корень диска, например `C:\zapret_studio` (пробелы в пути иногда ломают сервис/батники).
 
 5. Запустите нужный **`general*.bat` от имени администратора** или настройте автозапуск через **`service.bat`**.
 
@@ -74,15 +74,15 @@
   - **`Auto-Update Lists`** — вкл/выкл автообновления списков при каждом запуске стратегии (см. раздел ниже)
   - **`Update Lists Now`** — принудительно обновить базовые списки и пересобрать `ipset-all` прямо сейчас
   - **`Update IPSet List`** — пересобрать `ipset-all.txt` = база Flowseal (`.service/ipset-base.txt`) ∪ ваши IP (`lists/ipset-user.txt`)
-  - **`Update Hosts File`** — проверка/подсказка по `hosts` из [`.service/hosts`](https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/hosts) (веб Telegram / голос Discord у апстрима)
-  - **`Check for Updates`** — сравнение с [`.service/version.txt`](https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/version.txt), открытие [архива main.zip](https://github.com/bymakk/zapret-cb-sc/archive/refs/heads/main.zip)
+  - **`Update Hosts File`** — проверка/подсказка по `hosts` из [`.service/hosts`](https://raw.githubusercontent.com/bymakk/zapret_studio/main/.service/hosts) (веб Telegram / голос Discord у апстрима)
+  - **`Check for Updates`** — сравнение с [`.service/version.txt`](https://raw.githubusercontent.com/bymakk/zapret_studio/main/.service/version.txt), открытие [архива main.zip](https://github.com/bymakk/zapret_studio/archive/refs/heads/main.zip)
   - **`Run Diagnostics`** — типовые причины сбоев
 
 <a id="hosts-telegram-discord"></a>
 
 ## 💬 Веб-Telegram и голос Discord: файл `hosts`
 
-Иногда **веб-версия Telegram** не открывается или **зависает на «Подключение…»**, а в **Discord** бесконечно крутится подключение к **голосовому чату**, хотя сам клиент или сайт в целом живы. Часть таких случаев лечится **записями в системном файле `hosts`**: скрипт сравнивает ваш `hosts` с актуальным шаблоном из репозитория ([`.service/hosts`](https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/hosts)) и подсказывает, что добавить.
+Иногда **веб-версия Telegram** не открывается или **зависает на «Подключение…»**, а в **Discord** бесконечно крутится подключение к **голосовому чату**, хотя сам клиент или сайт в целом живы. Часть таких случаев лечится **записями в системном файле `hosts`**: скрипт сравнивает ваш `hosts` с актуальным шаблоном из репозитория ([`.service/hosts`](https://raw.githubusercontent.com/bymakk/zapret_studio/main/.service/hosts)) и подсказывает, что добавить.
 
 **Что сделать**
 
@@ -114,7 +114,7 @@
 
 **Что НЕ трогается** (остаётся локальным): `list-general-user.txt`, `list-exclude-user.txt`, `ipset-exclude-user.txt`, `list-ipset-host-skip.txt`, `ipset-user.txt`.
 
-**Где сводятся апстрим и ваши добавки** — в **форке** (`bymakk/zapret-cb-sc`): база синхронизируется кнопкой **Sync fork**/Action, ваши коммиты ложатся сверху. Клиент только скачивает готовое — git у пользователя не нужен.
+**Где сводятся апстрим и ваши добавки** — в **форке** (`bymakk/zapret_studio`): база синхронизируется кнопкой **Sync fork**/Action, ваши коммиты ложатся сверху. Клиент только скачивает готовое — git у пользователя не нужен.
 
 **Надёжность (fail-open)**
 - Перед обновлением — быстрый пробник доступности репозитория; если GitHub недоступен (типично за DPI) — **берутся локальные списки, `winws` стартует без задержки**.
@@ -154,7 +154,7 @@
 3. **service.bat** → **Remove Services**.  
 4. **`Run Diagnostics`** — устраните замечания.  
 5. Удалите папку с проектом.  
-6. Скачайте свежий ZIP с **[GitHub](https://github.com/bymakk/zapret-cb-sc)** и распакуйте в новую папку без проблемного пути.  
+6. Скачайте свежий ZIP с **[GitHub](https://github.com/bymakk/zapret_studio)** и распакуйте в новую папку без проблемного пути.  
 7. Снова подберите рабочий `general*`, при необходимости **`Install Service`**.
 
 ### Не работает игра с включённым запретом
@@ -175,7 +175,7 @@ Secure DNS, перебор стратегий, браузерный https://disc
 
 ### Не нашли ответа
 
-Создайте issue в **[bymakk/zapret-cb-sc](https://github.com/bymakk/zapret-cb-sc/issues)**. Вопросы по «чистому» апстриму — в [Flowseal/zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube/issues).
+Создайте issue в **[bymakk/zapret_studio](https://github.com/bymakk/zapret_studio/issues)**. Вопросы по «чистому» апстриму — в [Flowseal/zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube/issues).
 
 ## 🗒️ Добавление адресов
 
@@ -205,14 +205,14 @@ sc delete WinDivert
 
 ## ⭐ Поддержка
 
-Поставьте :star: репозиторию **[bymakk/zapret-cb-sc](https://github.com/bymakk/zapret-cb-sc)**.  
+Поставьте :star: репозиторию **[bymakk/zapret_studio](https://github.com/bymakk/zapret_studio)**.  
 Оригинальный zapret: [поддержать bol-van](https://github.com/bol-van/zapret?tab=readme-ov-file#%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B0).
 
-<a href="https://star-history.com/#bymakk/zapret-cb-sc&Date">
+<a href="https://star-history.com/#bymakk/zapret_studio&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=bymakk/zapret-cb-sc&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=bymakk/zapret-cb-sc&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=bymakk/zapret-cb-sc&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=bymakk/zapret_studio&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=bymakk/zapret_studio&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=bymakk/zapret_studio&type=Date" />
  </picture>
 </a>
 
@@ -222,6 +222,6 @@ sc delete WinDivert
 
 ## 🩷 Благодарности
 
-[![Contributors](https://contrib.rocks/image?repo=bymakk/zapret-cb-sc)](https://github.com/bymakk/zapret-cb-sc/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=bymakk/zapret_studio)](https://github.com/bymakk/zapret_studio/graphs/contributors)
 
 Отдельная благодарность **[Flowseal](https://github.com/Flowseal)** за [zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) и **[bol-van](https://github.com/bol-van)** за [zapret](https://github.com/bol-van/zapret) и [zapret-win-bundle](https://github.com/bol-van/zapret-win-bundle).

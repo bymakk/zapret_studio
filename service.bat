@@ -475,9 +475,9 @@ chcp 437 > nul
 cls
 
 :: Set current version and URLs
-set "GITHUB_VERSION_URL=https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/version.txt"
-set "GITHUB_REPOSITORY_URL=https://github.com/bymakk/zapret-cb-sc"
-set "GITHUB_DOWNLOAD_URL=https://github.com/bymakk/zapret-cb-sc/archive/refs/heads/main.zip"
+set "GITHUB_VERSION_URL=https://raw.githubusercontent.com/bymakk/zapret_studio/main/.service/version.txt"
+set "GITHUB_REPOSITORY_URL=https://github.com/bymakk/zapret_studio"
+set "GITHUB_DOWNLOAD_URL=https://github.com/bymakk/zapret_studio/archive/refs/heads/main.zip"
 
 :: Get the latest version from GitHub
 for /f "delims=" %%A in ('powershell -NoProfile -Command "(Invoke-WebRequest -Uri \"%GITHUB_VERSION_URL%\" -Headers @{\"Cache-Control\"=\"no-cache\"} -UseBasicParsing -TimeoutSec 5).Content.Trim()" 2^>nul') do set "GITHUB_VERSION=%%A"
@@ -1016,7 +1016,7 @@ chcp 437 > nul
 cls
 
 set "hostsFile=%SystemRoot%\System32\drivers\etc\hosts"
-set "hostsUrl=https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main/.service/hosts"
+set "hostsUrl=https://raw.githubusercontent.com/bymakk/zapret_studio/main/.service/hosts"
 set "tempFile=%TEMP%\zapret_hosts.txt"
 set "needsUpdate=0"
 
@@ -1127,8 +1127,8 @@ goto menu
 
 
 :upd_vars
-set "RAW=https://raw.githubusercontent.com/bymakk/zapret-cb-sc/main"
-set "CDN=https://cdn.jsdelivr.net/gh/bymakk/zapret-cb-sc@main"
+set "RAW=https://raw.githubusercontent.com/bymakk/zapret_studio/main"
+set "CDN=https://cdn.jsdelivr.net/gh/bymakk/zapret_studio@main"
 set "FS_RAW=https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/main"
 set "FS_CDN=https://cdn.jsdelivr.net/gh/Flowseal/zapret-discord-youtube@main"
 set "LISTS=%~dp0lists\"
